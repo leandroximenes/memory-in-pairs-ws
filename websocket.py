@@ -8,16 +8,16 @@ from pytz import timezone
 import signal
 import os
 
-# async def handler(websocket):
-#     while True:
-#         format = "%Y-%m-%d %H:%M:%S"
-#         now_utc = datetime.now(timezone('America/Sao_Paulo'))
-#         await websocket.send(now_utc.strftime(format))
-#         await asyncio.sleep(1)
-
 async def handler(websocket):
-    async for message in websocket:
-        await websocket.send(message)
+    while True:
+        format = "%Y-%m-%d %H:%M:%S"
+        now_utc = datetime.now(timezone('America/Sao_Paulo'))
+        await websocket.send(now_utc.strftime(format))
+        await asyncio.sleep(1)
+
+# async def handler(websocket):
+#     async for message in websocket:
+#         await websocket.send(message)
 
 async def main():
     # Set the stop condition when receiving SIGTERM.

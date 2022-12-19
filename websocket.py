@@ -129,7 +129,7 @@ async def main():
         host="",
         port=port,
     ):
-        await asyncio.Future()  # run forever
+        await stop
 
 
 if __name__ == "__main__":
